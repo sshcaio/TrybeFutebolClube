@@ -1,14 +1,25 @@
 const Login: object = {
   email: 'decaxias@ateseropa.com',
-  password: '5x1baixadacruel',
+  password: 'secret_admin',
 };
 
-const WrongLogin: object = {
+const WrongEmail: object = {
+  email: 'baixada@cruel.com',
+  password: 'secret_admin',
+}
+
+const WrongPassword: object = {
   email: 'decaxias@ateseropa.com',
-  password: 'zumbiestávivo',
+  password: '5x1zumbi',
+}
+
+const MissingLogin: object = {
+  email: 'decaxias@ateseropa.com',
 }
 
 export {
   Login,
-  WrongLogin,
+  WrongEmail,
+  WrongPassword,
+  MissingLogin,
 };
