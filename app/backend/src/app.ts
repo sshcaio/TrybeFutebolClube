@@ -1,7 +1,7 @@
 import * as express from 'express';
 import 'express-async-errors';
 import httpErrorMiddleware from './msc/middleware/http.error.middleware';
-import routes from './msc/router/routes';
+import routes from './router/routes';
 
 class App {
   public app: express.Express;

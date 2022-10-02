@@ -19,6 +19,7 @@ services:
     build: ./backend
     ports:
       - 3001:3001
+      - 3012:3012
     working_dir: /app-backend
     command: npm run dev
     volumes: 
