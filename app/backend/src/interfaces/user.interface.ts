@@ -1,5 +1,5 @@
 interface IUser {
-  id?: number|string,
+  id?: number | string,
   username?: string,
   email: string,
   password: string,
