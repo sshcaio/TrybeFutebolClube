@@ -29,7 +29,7 @@ class UsersService {
     const token = jwt.verify(authorization, 'jwt_secret') as ITokenDec;
     const { userId } = token;
 
-    const role = await User.findByPk(userId) as IUser;
+    const { role } = await User.findByPk(userId) as IUser;
     if (!token || !role) {
       throw new HttpException(401, 'The token is not valid')
     }
