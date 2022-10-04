@@ -1,6 +1,7 @@
 import Users from './users.mock';
 import Token from './token.mock';
 import { Login, WrongEmail, WrongPassword, MissingLogin } from './login.mock';
+import Teams from './teams.mock';
 
 export {
   Users,
@@ -9,4 +10,5 @@ export {
   WrongPassword,
   MissingLogin,
   Token,
+  Teams,
 }
