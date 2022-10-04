@@ -25,12 +25,12 @@ class UsersService {
     return { token };
   }
 
-  static async loginValidate(token: string) {
-    const userInfo = jwt.verify(token, 'jwt_secret') as ITokenDec;
-    const { userId } = userInfo;
+  static async loginValidate(authorization: string): Promise<object> {
+    const token = jwt.verify(authorization, 'jwt_secret') as ITokenDec;
+    const { userId } = token;
 
     const role = await User.findByPk(userId) as IUser;
-    if (!userInfo || !role) {
+    if (!token || !role) {
       throw new HttpException(401, 'The token is not valid')
     }
 

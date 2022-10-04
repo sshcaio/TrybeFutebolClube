@@ -69,7 +69,7 @@ describe('From the /login/validate endpoint', () => {
       });
   
       it('should return a 200 status and the users role', async () => {
-        const response = await Chai.request(app).post('/login/validate').send({ token: Mock.Token });
+        const response = await Chai.request(app).post('/login/validate').send({ authorization: Mock.Token });
         Chai.expect(response.status).to.equal(200);
         Chai.expect(response.body.role).to.exist;
       });
@@ -93,7 +93,7 @@ describe('From the /login/validate endpoint', () => {
   
       it(`should return a 401 status and incorrect 
       field message when receiving invalid token`, async () => {
-        const response = await Chai.request(app).post('/login').send({ token: '9999' });
+        const response = await Chai.request(app).post('/login').send({ authorization: '9999' });
         Chai.expect(response.status).to.equal(401);
         Chai.expect(response.body.role).to.exist;
         Chai.expect(response.body.message).to.equal('The token is not valid');
