@@ -70,7 +70,7 @@ describe('From the /teams/:id endpoint', () => {
 
       it(`should return a 404 status and wrong 
       id message when team isn't found`, async () => {
-        const response = await Chai.request(app).get('/teams');
+        const response = await Chai.request(app).get('/teams/:id');
         Chai.expect(response.status).to.equal(404);
         Chai.expect(response.body.message).to
           .equal(`No team matches the provided id`);
