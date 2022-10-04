@@ -10,7 +10,7 @@ class UsersController {
 
   static async loginValidate(request: Request, response: Response): Promise<Response> {
     const { token } = request.headers;
-    const result = await UsersService.loginValidate(token);
+    const result = await UsersService.loginValidate(token as string);
     return response.status(200).json(result);
   }
 }

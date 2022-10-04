@@ -1,7 +1,7 @@
 import * as bcrypt from 'bcryptjs';
 import * as jwt from 'jsonwebtoken';
 import IUser from '../../interfaces/user.interface';
-import IToken from '../../interfaces/token.interface';
+import IToken, { ITokenDec } from '../../interfaces/token.interface';
 import User from '../../database/models/UserModel';
 import HttpException from '../../shared/http.exception';
 
@@ -23,6 +23,18 @@ class UsersService {
     );
 
     return { token };
+  }
+
+  static async loginValidate(token: string) {
+    const userInfo = jwt.verify(token, 'jwt_secret') as ITokenDec;
+    const { userId } = userInfo;
+
+    const role = await User.findByPk(userId) as IUser;
+    if (!userInfo || !role) {
+      throw new HttpException(401, 'The token is not valid')
+    }
+
+    return { role };
   }
 }
 
