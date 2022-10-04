@@ -12,9 +12,10 @@ describe('From the root', () => {
     describe('Successfully', () => {
       it('should log the listened port on the console', async () => {
         Chai.expect(app.listen).to.exist;
-      })
-    })
-  })
+      });
+    });
+  });
+  
   describe('When a GET request is sent', () => {
     describe('And succeeds', () => {  
       it('should return a 200 status and a OK', async () => {
