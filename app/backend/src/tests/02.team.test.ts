@@ -67,14 +67,6 @@ describe('From the /teams/:id endpoint', () => {
       after(() => {
         Sinon.restore();
       });
-  
-      it(`should return a 406 status and invalid 
-      id message when id isn't a number`, async () => {
-        const response = await Chai.request(app).get('/teams');
-        Chai.expect(response.status).to.equal(406);
-        Chai.expect(response.body.message).to
-          .equal(`The id you're trying to access are not valid`);
-      });
 
       it(`should return a 404 status and wrong 
       id message when team isn't found`, async () => {
