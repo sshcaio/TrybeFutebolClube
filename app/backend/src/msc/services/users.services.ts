@@ -30,10 +30,6 @@ class UsersService {
     const { userId } = token;
 
     const { role } = await User.findByPk(userId) as IUser;
-    if (!token || !role) {
-      throw new HttpException(401, 'The token is not valid')
-    }
-
     return { role };
   }
 }
