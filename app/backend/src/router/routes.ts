@@ -2,7 +2,7 @@ import { Router } from 'express';
 import RoleValidation from '../msc/middleware/role.validation.middleware';
 import UsersController from '../msc/controllers/users.controllers';
 import LoginValidation from '../msc/middleware/login.validation.middleware';
-import TeamsController from '../msc/controllers/team.controllers';
+import TeamsController from '../msc/controllers/teams.controllers';
 
 const routes = Router();
 
