@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import HttpException from '../../shared/http.exception';
 import MatchesServices from '../services/matches.services';
 
 class MatchesController {
@@ -10,7 +9,7 @@ class MatchesController {
     }
 
     const { inProgress } = request.query;
-    
+
     let progress = true;
     switch (inProgress) {
       case 'true':
@@ -20,13 +19,18 @@ class MatchesController {
       case 'false':
         progress = false;
         break;
-    
+
       default:
         break;
     }
 
     const matches = await MatchesServices.getFilteredMatches(progress);
     return response.status(200).json(matches);
+  }
+
+  static async postMatch(request: Request, response: Response): Promise<Response> {
+    const result = await MatchesServices.postMatch(request.body);
+    return response.status(201).json(result);
   }
 }
 
