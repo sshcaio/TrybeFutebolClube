@@ -1,15 +1,15 @@
 const Teams: object[] = [
   {
     id: 1,
-    teamName: "Avaí/Kindermann"
+    teamName: 'Avaí/Kindermann'
   },
   {
     id: 2,
-    teamName: "Bahia"
+    teamName: 'Bahia'
   },
   {
     id: 3,
-    teamName: "Botafogo"
+    teamName: 'Botafogo'
   },
 ];
 

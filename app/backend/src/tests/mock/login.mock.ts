@@ -13,13 +13,18 @@ const WrongPassword: object = {
   password: '5x1zumbi',
 }
 
-const MissingLogin: object = {
+const MissingPass: object = {
   email: 'decaxias@ateseropa.com',
+}
+
+const MissingEmail: object = {
+  password: '5x1zumbi',
 }
 
 export {
   Login,
   WrongEmail,
   WrongPassword,
-  MissingLogin,
+  MissingPass,
+  MissingEmail,
 };
