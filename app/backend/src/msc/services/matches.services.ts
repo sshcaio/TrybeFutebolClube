@@ -1,8 +1,11 @@
 import Team from '../../database/models/TeamModel';
 import Match from '../../database/models/MatchModel';
 import HttpException from '../../shared/http.exception';
+import INewMatch from '../../interfaces/newmatch.interface';
 
 class MatchesServices {
+  static internalServerError = 'Internal server error';
+
   static async getMatches(): Promise<Match[]> {
     const matches: Match[] = await Match.findAll({
       include: [
@@ -12,7 +15,7 @@ class MatchesServices {
     });
 
     if (!matches) {
-      throw new HttpException(500, 'Internal server error');
+      throw new HttpException(500, this.internalServerError);
     }
 
     return matches;
@@ -28,10 +31,19 @@ class MatchesServices {
     });
 
     if (!matches) {
-      throw new HttpException(500, 'Internal server error');
+      throw new HttpException(500, this.internalServerError);
     }
 
     return matches;
+  }
+
+  static async postMatch(match: INewMatch): Promise<Match> {
+    const newMatch = await Match.create({ ...match });
+    if (!newMatch) {
+      throw new HttpException(500, this.internalServerError);
+    }
+
+    return newMatch as Match;
   }
 }
 
