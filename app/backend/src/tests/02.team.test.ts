@@ -78,4 +78,3 @@ describe('From the /teams/:id endpoint', () => {
     });
   });
 });
-

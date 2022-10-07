@@ -35,8 +35,15 @@ describe('From the /login endpoint', () => {
       });
 
       it(`should return a 400 status and missing 
-      fields message when missing data`, async () => {
-        const response = await Chai.request(app).post('/login').send(Mock.MissingLogin);
+      fields message when missing password`, async () => {
+        const response = await Chai.request(app).post('/login').send(Mock.MissingPass);
+        Chai.expect(response.status).to.equal(400);
+        Chai.expect(response.body.message).to.equal('All fields must be filled');
+      });
+
+      it(`should return a 400 status and missing 
+      fields message when missing email`, async () => {
+        const response = await Chai.request(app).post('/login').send(Mock.MissingEmail);
         Chai.expect(response.status).to.equal(400);
         Chai.expect(response.body.message).to.equal('All fields must be filled');
       });
