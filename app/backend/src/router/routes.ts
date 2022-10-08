@@ -6,6 +6,7 @@ import TeamsController from '../msc/controllers/teams.controllers';
 import MatchesController from '../msc/controllers/matches.controllers';
 import TokenValidation from '../msc/middleware/token.validation.middleware';
 import NewMatchValidation from '../msc/middleware/newmatch.validation.middleware';
+import LeaderboardHomeController from '../msc/controllers/leaderboards.controllers';
 
 const routes = Router();
 
@@ -44,6 +45,10 @@ routes.patch(
 routes.patch(
   '/matches/:id/finish',
   MatchesController.endMatch,
+);
+routes.get(
+  '/leaderboard/home',
+  LeaderboardHomeController.getTable,
 );
 
 export default routes;
