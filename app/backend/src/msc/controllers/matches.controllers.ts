@@ -55,6 +55,28 @@ class MatchesController {
 
     return response.status(200).json({ message: resultMessage });
   }
+
+  static async endMatch(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+    let resultMessage = '';
+
+    const result = await MatchesServices.endMatch(id);
+
+    switch (result) {
+      case 0:
+        resultMessage = 'Match is already over';
+        break;
+
+      case 1:
+        resultMessage = 'Finished';
+        break;
+
+      default:
+        break;
+    }
+
+    return response.status(200).json({ message: resultMessage });
+  }
 }
 
 export default MatchesController;
