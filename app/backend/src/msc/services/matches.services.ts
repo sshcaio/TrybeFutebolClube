@@ -38,7 +38,7 @@ class MatchesServices {
   }
 
   static async postMatch(match: INewMatch): Promise<Match> {
-    const newMatch = await Match.create({ ...match });
+    const newMatch = await Match.create({ ...match, inProgress: true });
     if (!newMatch) {
       throw new HttpException(500, this.internalServerError);
     }
@@ -48,7 +48,7 @@ class MatchesServices {
 
   static async patchMatch(id: string, home: number, away: number): Promise<number> {
     const [NewResult] = await Match.update(
-      { home, away },
+      { homeTeamGoals: home, awayTeamGoals: away },
       { where: { id } },
     );
 
@@ -56,12 +56,12 @@ class MatchesServices {
   }
 
   static async endMatch(id: string): Promise<number> {
-    const [NewResult] = await Match.update(
+    const [Finished] = await Match.update(
       { inProgress: false },
       { where: { id } },
     );
 
-    return NewResult;
+    return Finished;
   }
 }
 
