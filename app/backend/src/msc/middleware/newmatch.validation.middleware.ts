@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
+import Team from '../../database/models/TeamModel';
 import HttpException from '../../shared/http.exception';
-import TeamsService from '../services/teams.services';
 
 class NewMatchValidation {
   static async validate(request: Request, _response: Response, next: NextFunction) {
@@ -16,8 +16,8 @@ class NewMatchValidation {
       throw new HttpException(401, 'New matches must be running');
     }
 
-    const home = await TeamsService.getTeamById(homeTeam);
-    const away = await TeamsService.getTeamById(awayTeam);
+    const home = await Team.findByPk(homeTeam);
+    const away = await Team.findByPk(awayTeam);
     if (!home || !away) {
       throw new HttpException(404, 'There is no team with such id!');
     }
