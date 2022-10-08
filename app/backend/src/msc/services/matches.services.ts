@@ -51,6 +51,16 @@ class MatchesServices {
       { home, away },
       { where: { id } },
     );
+
+    return NewResult;
+  }
+
+  static async endMatch(id: string): Promise<number> {
+    const [NewResult] = await Match.update(
+      { inProgress: false },
+      { where: { id } },
+    );
+
     return NewResult;
   }
 }
