@@ -9,12 +9,37 @@ import NewMatchValidation from '../msc/middleware/newmatch.validation.middleware
 
 const routes = Router();
 
-routes.post('/login', LoginValidation.validate, UsersController.login);
-routes.get('/login/validate', RoleValidation.validate, UsersController.loginValidate);
-routes.get('/teams', TeamsController.getTeams);
-routes.get('/teams/:id', TeamsController.getTeamById);
-routes.get('/matches', MatchesController.getMatches);
-routes.post('/matches', TokenValidation.validate,
-  NewMatchValidation.validate, MatchesController.postMatch);
+routes.post(
+  '/login',
+  LoginValidation.validate,
+  UsersController.login,
+);
+routes.get(
+  '/login/validate',
+  RoleValidation.validate,
+  UsersController.loginValidate,
+);
+routes.get(
+  '/teams',
+  TeamsController.getTeams,
+);
+routes.get(
+  '/teams/:id',
+  TeamsController.getTeamById,
+);
+routes.get(
+  '/matches',
+  MatchesController.getMatches,
+);
+routes.post(
+  '/matches',
+  TokenValidation.validate,
+  NewMatchValidation.validate,
+  MatchesController.postMatch,
+);
+routes.patch(
+  '/matches/:id',
+  MatchesController.patchMatch,
+);
 
 export default routes;
