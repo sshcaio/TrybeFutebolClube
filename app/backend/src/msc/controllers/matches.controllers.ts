@@ -32,6 +32,29 @@ class MatchesController {
     const result = await MatchesServices.postMatch(request.body);
     return response.status(201).json(result);
   }
+
+  static async patchMatch(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+    const { homeTeamGoals, awayTeamGoals } = request.body;
+    let resultMessage = '';
+
+    const result = await MatchesServices.patchMatch(id, homeTeamGoals, awayTeamGoals);
+
+    switch (result) {
+      case 0:
+        resultMessage = 'That\'s already the match result';
+        break;
+
+      case 1:
+        resultMessage = 'Successfully changed';
+        break;
+
+      default:
+        break;
+    }
+
+    return response.status(200).json({ message: resultMessage });
+  }
 }
 
 export default MatchesController;
