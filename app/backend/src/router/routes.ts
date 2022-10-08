@@ -41,5 +41,9 @@ routes.patch(
   '/matches/:id',
   MatchesController.patchMatch,
 );
+routes.patch(
+  '/matches/:id/finish',
+  MatchesController.endMatch,
+);
 
 export default routes;
