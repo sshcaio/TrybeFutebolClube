@@ -45,6 +45,14 @@ class MatchesServices {
 
     return newMatch as Match;
   }
+
+  static async patchMatch(id: string, home: number, away: number): Promise<number> {
+    const [NewResult] = await Match.update(
+      { home, away },
+      { where: { id } },
+    );
+    return NewResult;
+  }
 }
 
 export default MatchesServices;
