@@ -4,16 +4,12 @@ import HttpException from '../../shared/http.exception';
 
 class NewMatchValidation {
   static async validate(request: Request, _response: Response, next: NextFunction) {
-    const { homeTeam, awayTeam, homeTeamGoals, awayTeamGoals, inProgress } = request.body;
-    if (!homeTeam || !awayTeam || !homeTeamGoals || !awayTeamGoals || !inProgress) {
+    const { homeTeam, awayTeam, homeTeamGoals, awayTeamGoals } = request.body;
+    if (!homeTeam || !awayTeam || !homeTeamGoals || !awayTeamGoals) {
       throw new HttpException(400, 'All fields must be filled');
     }
     if (homeTeam === awayTeam) {
       throw new HttpException(401, 'It is not possible to create a match with two equal teams');
-    }
-
-    if (inProgress === false) {
-      throw new HttpException(401, 'New matches must be running');
     }
 
     const home = await Team.findByPk(homeTeam);

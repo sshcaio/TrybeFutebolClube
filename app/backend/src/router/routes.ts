@@ -10,6 +10,12 @@ import NewMatchValidation from '../msc/middleware/newmatch.validation.middleware
 const routes = Router();
 
 routes.post(
+  '/matches',
+  TokenValidation.validate,
+  NewMatchValidation.validate,
+  MatchesController.postMatch,
+);
+routes.post(
   '/login',
   LoginValidation.validate,
   UsersController.login,
@@ -30,12 +36,6 @@ routes.get(
 routes.get(
   '/matches',
   MatchesController.getMatches,
-);
-routes.post(
-  '/matches',
-  TokenValidation.validate,
-  NewMatchValidation.validate,
-  MatchesController.postMatch,
 );
 routes.patch(
   '/matches/:id',
