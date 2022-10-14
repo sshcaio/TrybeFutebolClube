@@ -117,6 +117,7 @@ Para iniciar o projeto, é necessário ter instalado Git, Docker com Docker Comp
 Antes de iniciar, entre na raiz do projeto pelo seu terminal e rode o comando `npm run compose:up` para criar e inicializar os containers da aplicação. Você pode acesssar o frontend da aplicação, uma vez que os containers estejam rodando, acessando `http://localhost:3000/`. Para logar e testar o funcionamento da aplicação, utilize um dos logins abaixo.
 
 Administrador: `email: admin@admin.com | password: secret_admin`
+
 Usuário comum: `email: user@user.com | password: secret_user`
 
 <details>
