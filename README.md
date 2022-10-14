@@ -101,7 +101,7 @@ Na engenharia de software, **SOLID** é um acrônimo mnemônico para cinco princ
 -   Interface Segregation Principle (Princípio da Segregação de Interface);
 -   Dependency Inversion Principle (Princípio da Inversão de Dependência).
 
-Para se aprofundar no significado de cada princípio, consulte este [link](https://en.wikipedia.org/wiki/SOLID). Ou este outro [link](https://pt.wikipedia.org/wiki/SOLID) para a versão em português.
+Para se aprofundar no significado de cada princípio, consulte este <a href="https://en.wikipedia.org/wiki/SOLID" target="_blank">link</a>. Ou este outro <a href="https://pt.wikipedia.org/wiki/SOLID" target="_blank">link</a> para a versão em português.
 
 <details>
  <summary>English translation</summary>
