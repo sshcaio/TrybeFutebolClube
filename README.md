@@ -9,7 +9,7 @@ O projeto Trybe Futebol Clube foi desenvolvido durante o módulo Backend do curs
 
 <details>
  <summary>English translation</summary>
-The Blogs API project was developed during the Backend module on Trybe's Web Development course. Trybe's most challenging project to date, the TFC required all the backend knowledge acquired so far, besides being the first project where I applied TDD. The project consists of a frontend with an interface to display information about a football championship. Our task was to create the backend that would serve the API which the frontend would use to retrieve all the championship information, such as teams, games and leaderboards.
+The Trybe Football Club project was developed during the Backend module on Trybe's Web Development course. Trybe's most challenging project to date, the TFC required all the backend knowledge acquired so far, besides being the first project where I applied TDD. The project consists of a frontend with an interface to display information about a football championship. Our task was to create the backend that would serve the API which the frontend would use to retrieve all the championship information, such as teams, games and leaderboards.
 </details>
 
 ---
